@@ -47,8 +47,9 @@ const App: React.FC = () => {
 
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
-        const res = await fetch('http://localhost:8000/', {
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+        const res = await fetch(`${apiBase}/`, {
           mode: 'cors',
           cache: 'no-cache',
           signal: controller.signal
@@ -71,7 +72,7 @@ const App: React.FC = () => {
 
   const handleAnalyze = async (problem: string, context: ContextOption[], isLearningMode: boolean, llmConfig: LLMConfig) => {
     if (!backendActive) {
-      setError("Backend is offline. Please start the backend server at localhost:8000");
+      setError("Backend is offline. Please wait for the server to wake up or check your connection.");
       return;
     }
 
@@ -186,7 +187,7 @@ const App: React.FC = () => {
 
   const runVisualizationWithAlgorithm = async (algorithmName: string | null) => {
     if (!backendActive) {
-      setError("Backend is offline. Please start the backend server at localhost:8000");
+      setError("Backend is offline. Please wait for the server to wake up or check your connection.");
       return;
     }
 

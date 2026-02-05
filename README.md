@@ -77,8 +77,8 @@ AlgoInsight is not a wrapper around ChatGPT. It uses a **Hybrid Execution Model*
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/tushitdave/AlgoInsight.git
-cd AlgoInsight
+git clone https://github.com/tushitdave/algoinsight.git
+cd algoinsight
 ```
 
 ### 2. Frontend Setup
